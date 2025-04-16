@@ -1,0 +1,34 @@
+﻿@model WebAppCurdMD.ViewModel.EmployeeVM
+
+<table class=" table table-bordered  table-striped table-striped-columns table-responsive" >
+    <thead>
+        <tr>
+            <th>Company</th>
+            <th>Designation </th>
+            <th>Service Time</th>
+            <th><button type="submit" value="Add" name="operation">Add</button></th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @for(int i=0; i < Model.Experiences .Count;i++)
+        {
+                <tr>
+                    <td>
+                        @Html.TextBoxFor(e => Model.Experiences[i].CompanyName,new  {@class="form-control" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(e => Model.Experiences[i].Designation, new { @class = "form-control" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(e => Model.Experiences[i].ServicePeriod, new { @class = "form-control" })
+                    </td>
+                    <td>
+                        <button type="submit"class="btn btn-danger" value="Delete-@i" name="operation">Delete</button>
+                    </td>
+                </tr>
+            }
+    </tbody>
+</table>
